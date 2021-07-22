@@ -97,7 +97,7 @@ header {
 
 
 /*Botão de download*/
-.div-download {
+.div-login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,16 +110,16 @@ header {
     padding: 2px;
 }
 
-.div-download a {
+.div-login a {
     text-decoration: none;
     color: var(--Color-secundary);
-    padding: 10px 5px;
+    padding: 10px 60px;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
 
-.div-download:hover {
+.div-login:hover {
     background-color: var(--Color-hover-button);
     transition: background 0.2s; 
 }
@@ -152,7 +152,7 @@ header {
 
 .first-section .div-section1 .main-text .text1 {
     width: 405px;
-    height: 300px;
+    height: 320px;
 }
 
 .first-section .div-section1 .main-text .text1 span{
@@ -180,7 +180,7 @@ header {
 
 .first-section .div-section1 .main-text .text2 {
     width: 405px;
-    height: 176px;
+    height: 156px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -248,7 +248,7 @@ footer {
         height: 90%;
     }
 
-    .div-download {
+    .div-login {
         display: none;
     }
 
