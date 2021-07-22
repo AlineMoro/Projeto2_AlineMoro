@@ -9,7 +9,7 @@ login_btn.addEventListener('click',click_login)
 function click_login() {
     //var res = await axios.post('https://reqres.in/api/login')
     main_text.className = 'main-text-login'
-    text1.innerHTML = '<h2>Clientes PicPay possuem ofertas exclusivas!</h2><p>E-mail</p><input type="email" class="email" placeholder="ex:nome_sobrenome@hotmail.com"><p>Senha</p><input type="password" class="senha"></input>'
+    text1.innerHTML = '<h2>Clientes PicPay possuem ofertas exclusivas!</h2><p>Email</p><input type="email" class="email" placeholder="ex:nome_sobrenome@hotmail.com"><p>Senha</p><input type="password" class="senha"></input>'
     text1.className = 'text1-login'
     text2.innerHTML = ''
     text3.innerHTML = ''
