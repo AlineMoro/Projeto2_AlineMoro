@@ -22,8 +22,8 @@ function click_login() {
         var email = document.querySelector('.email').value,
             senha = document.querySelector('.senha').value,
             input_email = document.querySelector('.email'),
-            input_senha = document.querySelector('.senha')
-
+            input_senha = document.querySelector('.senha'),
+            div_oferta = document.querySelector('.main-text-login')
 
         login = axios.post('https://reqres.in/api/login', {
             email: email,
@@ -37,12 +37,22 @@ function click_login() {
                 input_senha.style.border = '2px solid #21812d'
                 text3.className = 'text3-success'
                 text3.innerHTML = '<h3 class="msg_error">Login efetuado com sucesso!</h3>'
+
+                var user = {
+                    userEmail: email,
+                    userSenha: senha
+                }
+                document.cookie = 'user = ' + JSON.stringify(user)
             }
 
             var section = document.querySelector('.div-section1'),
                 consulta = document.createElement('div')
                 input_pesquisa = document.createElement('input')
                 send_pesquisa = document.createElement('input')
+
+            div_oferta.innerHTML = '<h2>Com PicPay você tem acesso exclusivo às promoções dos seus jogos favoritos</h2>'
+            div_oferta.appendChild(text3)
+            div_oferta.className = 'div-oferta'
 
             section.appendChild(consulta)
             consulta.className = 'div-consulta'
@@ -54,6 +64,8 @@ function click_login() {
             send_pesquisa.value = 'Pesquisar'
             send_pesquisa.className = 'send-pesquisa'
 
+            var lista = document.createElement('ul')
+
             send_pesquisa.addEventListener('click', pesquisar)
             function pesquisar() {
                 var titulo = document.querySelector('.pesquisa').value
@@ -63,17 +75,21 @@ function click_login() {
                 .then(jogo)
                 function jogo(jogo) {
                     console.log(jogo)
-                    for(var i = 0; i <= jogo.data.length && i < 15; i++){
-                        var lista = document.createElement('ul'),
-                            li = document.createElement('li'),
-                            img = document.createElement('img')
-                        
-                        consulta.appendChild(lista)
-                        lista.className = 'lista-jogos'
-                        li.innerHTML = '<p><span>Título: "</span>' + jogo.data[i].title + '"</p><p><span>Classificação: </span>' + jogo.data[i].dealRating + '</p><p><span>Preço normal: </span>U$' + jogo.data[i].normalPrice + '</p><p><span>Preço promocional: </span>U$' + jogo.data[i].salePrice + '</p>'
-                        img.src = jogo.data[i].thumb
-                        lista.appendChild(li)
-                        li.appendChild(img)
+                    for(var i = 0; i <= jogo.data.length && i < 20; i++){
+                        if(jogo.data[i].isOnSale == 1) {
+                            var li = document.createElement('li'),
+                                img = document.createElement('img'),
+                                link = document.createElement('p')
+
+                            consulta.appendChild(lista)
+                            lista.className = 'lista-jogos'
+                            li.innerHTML = '<p><span>Título: "</span>' + jogo.data[i].title + '"</p><p><span>Preço normal: </span>U$' + jogo.data[i].normalPrice + '</p>'
+                            img.src = jogo.data[i].thumb
+                            link.innerHTML = '<a href="https://www.cheapshark.com//search#q:' + jogo.data[i].title + '">Clique aqui e compare as ofertas</a>'
+                            lista.appendChild(li)
+                            li.appendChild(link)
+                            li.appendChild(img)
+                        }
                     }
                 }
             }
@@ -92,8 +108,6 @@ function click_login() {
                 text3.className = 'text3-length'
                 text3.innerHTML = '<h3 class="msg_error">Campo(s) inválido(s)</h3>'
             } else {
-                input_email.style.border = '2px solid #21812d'
-                input_senha.style.border = '2px solid #21812d'
                 text3.className = 'text3-error'
                 text3.innerHTML = '<h3 class="msg_error">Usuário ou senha inválido</h3>'
             }
