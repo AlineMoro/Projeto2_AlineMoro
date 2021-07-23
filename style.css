@@ -6,7 +6,7 @@
     --Color-hover-button: #365ad6;
     --Color-button: #426dff;
     --Color-section2: #263224;
-    --Color-main-text: #223324;
+    --Color-main-text: #293626;
     --Color-login1: #b5b6b1;
 }
 
@@ -192,10 +192,10 @@ header {
 }
 
 .first-section .div-section1 .main-text-login .text1-login {
-    width: 260px;
+    width: 280px;
     height: max-content;
-    padding: 10px 20px;
-    margin: auto;
+    padding: 10px 0 0 20px;
+    margin: auto 0;
     font-family: 'Antonio', sans-serif;
 }
 
@@ -205,16 +205,15 @@ header {
     font-size: 27px;
 }
 
-.first-section .div-section1 .main-text-login .text1-login p {
+.first-section .div-section1 .main-text-login .text1-login label {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 5px;
-    margin-top: 0;
 }
 
 .first-section .div-section1 .main-text-login .text1-login input {
-    width: 100%;
+    width: 98%;
     height: 30px;
+    margin-top: 5px;
     margin-bottom: 10px;
     border: 0.2px solid var(--Color-secundary);
     border-radius: 10px;
@@ -223,10 +222,15 @@ header {
     font-size: 16px;
     padding-left: 5px;
     padding-right: 5px;
+    outline: 0;
 }
 
-.first-section .div-section1 .main-text-login .text1-login input::placeholder {
-    color: rgb(199, 195, 195);
+.first-section .div-section1 .main-text-login .text1-login input:focus {
+    border: 1px solid gray;
+}
+
+input::placeholder {
+    color: rgb(189, 185, 185);
 }
 
 .first-section .div-section1 .main-text .text2 {
@@ -268,8 +272,8 @@ header {
     align-items: center;
     background-color: var(--Color-button);
     color: var(--Color-secundary);
-    height: 40px;
-    width: 260px;
+    height: 35px;
+    width: 282px;
     border-radius: 50px;
     padding: 2px;
 }
@@ -277,10 +281,79 @@ header {
 .div-button-login a {
     text-decoration: none;
     color: var(--Color-secundary);
-    padding: 7px 90px;
+    padding: 7px 100px;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+}
+
+.text3-success h3{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--Color-section2);
+}
+
+.text3-empity h3, .text3-length h3, .text3-error h3{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(175, 9, 9);
+}
+
+.div-consulta {
+    width: 1000px;
+    height: 620px;
+    margin-top: 100px;
+    margin-left: 70px;
+    background-color: var(--Color-primary);
+    border: 2px solid grey;
+    border-radius: 5px;
+    box-shadow: 3px 3px rgb(189, 187, 187);
+    color: var(--Color-main-text);
+    overflow-y: scroll;
+}
+
+.div-consulta li img {
+    margin: 5px 0 30px;
+}
+
+.div-consulta li p {
+    margin: 5px 0;
+    color: black;
+}
+
+.div-consulta li p span {
+    font-weight: bolder;
+}
+
+.div-consulta .pesquisa {
+    width: 77%;
+    height: 30px;
+    margin: 10px 15px;
+    border: 0.2px solid var(--Color-secundary);
+    border-radius: 10px;
+    box-shadow: 2px 2px rgb(160, 160, 160);
+    background-color: var(--Color-secundary);
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 5px;
+    outline: 0;
+}
+
+.div-consulta .send-pesquisa {
+    width: 17%;
+    height: 35px;
+    margin: 10px auto;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.div-consulta .pesquisa:focus {
+    border: 1px solid gray;
 }
 
 .div-button:hover, .div-button-login:hover {
