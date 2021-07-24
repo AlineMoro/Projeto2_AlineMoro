@@ -114,4 +114,3 @@ function click_login() {
         })
     }
 }
-
